@@ -18,6 +18,8 @@ module.exports = {
     extend: {
       colors: {
         radiogrey: "#262626",
+        radiored: "#E11313",
+        radioblack: "#1D1C20",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
