@@ -1,14 +1,14 @@
-import { Button } from "./ui/button" 
-import { PRODUCT_CATEGORIES } from "@/config"
-import Link from "next/link"
+import { Button } from "./ui/button";
+import { PRODUCT_CATEGORIES } from "@/config";
+import Link from "next/link";
 
-type Category = (typeof PRODUCT_CATEGORIES)[number]
+type Category = (typeof PRODUCT_CATEGORIES)[number];
 
 interface NavItemProps {
-  category: Category
-  isOpen: boolean
-  handleOpen: () => void
-  isAnyOpen: boolean
+  category: Category;
+  isOpen: boolean;
+  handleOpen: () => void;
+  isAnyOpen: boolean;
 }
 
 const NavItem = ({ category }: NavItemProps) => {
@@ -22,7 +22,7 @@ const NavItem = ({ category }: NavItemProps) => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NavItem
+export default NavItem;
