@@ -1,7 +1,7 @@
 const RadioWidget = () => {
   return (
     <div className="shadow-md bg-white sm:rounded-lg p-6 w-auto h-auto">
-      <div className="flex items-center justify-start mb-2">
+      <div className="flex items-center justify-start mb-4">
         <div className="w-5 h-5 rounded-xl bg-red-500 mr-2"></div>
         <h1 className="text-xl font-bold tracking-tight text-gray-900 sm:text-xl">
           Now Playing
@@ -10,7 +10,7 @@ const RadioWidget = () => {
 
       <div className="flex justify-between items-center">
         <div className="flex justify-between items-center">
-          <div className="w-12 h-10 rounded-xl bg-gray-500 mr-2"></div>
+          {/* <div className="w-12 h-10 rounded-xl bg-gray-500 mr-2"></div> */}
           <div>
             <h2 className="text-md font-bold text-start tracking-tight text-gray-900 sm:text-md">
               A show about something nice
@@ -24,7 +24,7 @@ const RadioWidget = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="w-8 h-8 fill-red-500"
+          className="w-10 h-10 fill-red-500"
         >
           <path
             fillRule="evenodd"

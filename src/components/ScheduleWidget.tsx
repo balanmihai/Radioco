@@ -2,10 +2,11 @@ const ScheduleWidget = () => {
   return (
     <div className="flex">
       <div className=" shadow-md bg-white sm:rounded-lg p-6 w-full h-auto">
-        <div className="">
+        <div className="flex justify-between">
           <h1 className="text-xl font-bold text-start tracking-tight text-gray-900 sm:text-xl">
             Schedule
           </h1>
+          <p>19:03 GMT</p>
         </div>
 
         <div className=" p-8">
