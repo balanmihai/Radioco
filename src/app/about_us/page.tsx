@@ -65,7 +65,7 @@ export default function About() {
             {people.map((person) => (
               <li key={person.name}>
                 <img
-                  className="aspect-[3/2] w-full rounded-2xl object-cover"
+                  className="shadow-lg aspect-[3/2] w-full rounded-2xl object-cover"
                   src={person.imageUrl}
                   alt=""
                 />

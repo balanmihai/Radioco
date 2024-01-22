@@ -70,7 +70,7 @@ export default function Blog() {
             {posts.map((post) => (
               <article
                 key={post.id}
-                className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
+                className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl shadow-lg bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
               >
                 <img
                   src={post.imageUrl}
