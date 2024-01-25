@@ -10,7 +10,7 @@ const RadioWidget = () => {
 
       <div className="flex justify-between items-center">
         <div className="flex justify-between items-center">
-          {/* <div className="w-12 h-10 rounded-xl bg-gray-500 mr-2"></div> */}
+          <div className="w-12 h-12 rounded-xl bg-gray-500 mr-2"></div>
           <div>
             <h2 className="text-md font-bold text-start tracking-tight text-gray-900 sm:text-md">
               A show about something nice
