@@ -22,23 +22,23 @@ export default function RootLayout({
       <body
         className={cn("relative h-full font-sans antialiased", inter.className)}
       >
-        {/* <ThemeProvider
+        <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        > */}
+        >
         <main className="relative flex flex-col min-h-screen ">
           <Providers>
             <Navbar />
-            {/* <ModeToggle /> */}
+            <ModeToggle />
             <div className="flex-grow flex-1">{children}</div>
             <Footer />
             <SideLinks />
           </Providers>
         </main>
         <Toaster position="top-center" richColors />
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
       </body>
     </html>
   )
