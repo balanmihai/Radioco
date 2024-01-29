@@ -9,6 +9,7 @@ import { formatPrice } from "@/lib/utils"
 import Link from "next/link"
 import PaymentStatus from "@/components/PaymentStatus"
 
+
 interface PageProps {
   searchParams: {
     [key: string]: string | string[] | undefined
@@ -54,7 +55,7 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
       <div className="hidden lg:block h-80 overflow-hidden lg:absolute lg:h-full lg:w-1/2 lg:pr-4 xl:pr-12">
         <Image
           fill
-          src="/checkout-thank-you.jpg"
+          src="/media/checkout-thank-you.jpg"
           className="h-full w-full object-cover object-center"
           alt="thank you for your order"
         />
@@ -146,7 +147,7 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
 
               <div className="mt-16 border-t border-gray-200 py-6 text-right">
                 <Link
-                  href="/products"
+                  href="/subscription"
                   className="text-sm font-medium text-blue-600 hover:text-blue-500"
                 >
                   Continue shopping &rarr;

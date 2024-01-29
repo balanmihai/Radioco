@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { privateProcedure, router } from "./trpc"
+import { privateProcedure, publicProcedure, router } from "./trpc"
 import { TRPCError } from "@trpc/server"
 import { getPayloadClient } from "../get-payload"
 import { stripe } from "../lib/stripe"
@@ -18,24 +18,14 @@ export const paymentRouter = router({
 
       const payload = await getPayloadClient()
 
-      // const { docs: products } = await payload.find({
-      //   collection: "products",
-      //   where: {
-      //     id: {
-      //       in: productIds,
-      //     },
-      //   },
-      // })
-
       const { docs: products } = await payload.find({
         collection: "products",
         where: {
-          stripeId: {
-            in: productIds, // Assuming productIds now contain Stripe IDs
+          id: {
+            in: productIds,
           },
         },
       })
-
 
       const filteredProducts = products.filter((prod) => Boolean(prod.priceId))
 
@@ -57,20 +47,12 @@ export const paymentRouter = router({
         })
       })
 
-      line_items.push({
-        price: "price_1Oca9vCCdOHTtB3CrfKIopSW",
-        quantity: 1,
-        adjustable_quantity: {
-          enabled: false,
-        },
-      })
-
       try {
         const stripeSession = await stripe.checkout.sessions.create({
           success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
-          cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/subscription`,
+          cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cart`,
           payment_method_types: ["card", "paypal"],
-          mode: "payment",
+          mode: "subscription",
           metadata: {
             userId: user.id,
             orderId: order.id,
