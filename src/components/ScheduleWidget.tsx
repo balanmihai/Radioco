@@ -1,72 +1,69 @@
+"use client";
+
+import React, { Key, useEffect, useState } from "react";
+
+type ScheduleData = {
+  data: [
+    {
+      start?: string;
+      end?: string;
+      playlist?: {
+        id: Key | null | undefined;
+        name: string;
+        colour: string;
+        artist: string;
+        title: string;
+        artwork: string;
+      };
+    }
+  ];
+};
+
 const ScheduleWidget = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState<ScheduleData>();
+  const url = "https://public.radio.co/stations/s1cdb8ef73/embed/schedule";
+
+  const getData = () => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div className="flex">
-      <div className=" shadow-md bg-white sm:rounded-lg p-6 w-full h-auto">
-        <div className="flex justify-between">
-          <h1 className="text-xl font-bold text-start tracking-tight text-gray-900 sm:text-xl">
-            Schedule
-          </h1>
-          <p>19:03 GMT</p>
+    <div className="shadow-md bg-white rounded-xl p-6 w-auto h-auto">
+      <div className="flex-row pb-2 flex items-center justify-between">
+        <div className="text-lg font-bold text-start tracking-tight text-gray-900 sm:text-xl">
+          Schedule
         </div>
+        <div>19:03 GMT</div>
+      </div>
 
-        <div className=" p-8">
-          <div className="">
-            <div className="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
-              <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                <p className="w-32 text-md font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                  08:00 - 09:00
-                </p>
-                <h3 className="text-md font-semibold text-gray-900 dark:text-white">
-                  <a href="#" className="hover:underline">
-                    Opening remarks
-                  </a>
-                </h3>
-              </div>
-              <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                <p className="w-32 text-md font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                  08:00 - 09:00
-                </p>
-                <h3 className="text-md font-semibold text-gray-900 dark:text-white">
-                  <a href="#" className="hover:underline">
-                    Opening remarks
-                  </a>
-                </h3>
-              </div>
-              <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                <p className="w-32 text-md font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                  08:00 - 09:00
-                </p>
-                <h3 className="text-md font-semibold text-gray-900 dark:text-white">
-                  <a href="#" className="hover:underline">
-                    Opening remarks
-                  </a>
-                </h3>
+      <div className="h-96 overflow-y-scroll no-scrollbar">
+        {isLoading ? (
+          <>loading</>
+        ) : (
+          data?.data.map((data) => (
+            <div
+              key={data.playlist?.id}
+              className="flex flex-row justify-between py-4 items-center"
+            >
+              <div className=" text-md font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
+                {data.start?.slice(11, -9)} - {data.end?.slice(11, -9)}
               </div>
 
-              <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                <p className="w-32 text-md font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                  08:00 - 09:00
-                </p>
-                <h3 className="text-md font-semibold text-gray-900 dark:text-white">
-                  <a href="#" className="hover:underline">
-                    Opening remarks
-                  </a>
-                </h3>
-              </div>
-
-              <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                <p className="w-32 text-md font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                  08:00 - 09:00
-                </p>
-                <h3 className="text-md font-semibold text-gray-900 dark:text-white">
-                  <a href="#" className="hover:underline">
-                    Opening remarks
-                  </a>
-                </h3>
+              <div className="text-md font-semibold text-right pr-2 text-gray-900 w-36">
+                {data.playlist?.title}
               </div>
             </div>
-          </div>
-        </div>
+          ))
+        )}
       </div>
     </div>
   );

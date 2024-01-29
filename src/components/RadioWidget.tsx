@@ -1,37 +1,100 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+import AudioButton from "./AudioButton";
+
+interface RootObject {
+  status: string;
+  source: Source;
+  collaborators: Collaborator[];
+  relays: Relay[];
+  current_track: Currenttrack;
+  history: History[];
+  logo_url: string;
+  streaming_hostname: string;
+  outputs: Output[];
+}
+interface Output {
+  name: string;
+  format: string;
+  bitrate: number;
+}
+interface History {
+  title: string;
+}
+interface Currenttrack {
+  title: string;
+  start_time: string;
+  artwork_url: string;
+  artwork_url_large: string;
+}
+interface Source {
+  type: string;
+  collaborator: Collaborator;
+  relay: Relay;
+}
+interface Relay {
+  id: number;
+  url: string;
+  status: string;
+}
+interface Collaborator {
+  id: string;
+  name: string;
+  status: string;
+}
+
 const RadioWidget = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState<RootObject>();
+  const url = "https://public.radio.co/stations/sced7c0e79/status";
+
+  const getData = () => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className="shadow-md bg-white sm:rounded-lg p-6 w-auto h-auto">
-      <div className="flex items-center justify-start mb-4">
-        <div className="w-5 h-5 rounded-xl bg-red-500 mr-2"></div>
-        <h1 className="text-xl font-bold tracking-tight text-gray-900 sm:text-xl">
-          Now Playing
+      <div className="flex items-center justify-between mb-4">
+        <h1 className="text-xl flex items-center font-bold tracking-tight text-gray-900 sm:text-xl">
+          <div className="w-4 h-4 rounded-xl bg-red-500 mr-2"></div>Now Playing
         </h1>
+
+        {isLoading && data ? (
+          <>loading</>
+        ) : (
+          <div className="text-md text-green-500 font-bold">{data?.status}</div>
+        )}
       </div>
 
       <div className="flex justify-between items-center">
         <div className="flex justify-between items-center">
-          <div className="w-12 h-12 rounded-xl bg-gray-500 mr-2"></div>
+          <img
+            className="w-16 h-16 rounded-xl mr-2"
+            src={data?.current_track.artwork_url}
+          ></img>
           <div>
-            <h2 className="text-md font-bold text-start tracking-tight text-gray-900 sm:text-md">
-              A show about something nice
+            <h2 className="text-lg font-bold text-start tracking-tight text-gray-900 sm:text-md">
+              {data?.current_track.title}
             </h2>
-            <p className="text-start text-sm text-gray-500 w-96">
+            {/* <p className="text-start text-sm text-gray-500 w-96">
               With Sam Smith
-            </p>
+            </p> */}
           </div>
         </div>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="w-10 h-10 fill-red-500"
-        >
-          <path
-            fillRule="evenodd"
-            d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z"
-            clipRule="evenodd"
-          />
-        </svg>
+
+        <AudioButton
+          url="
+https://s3.radio.co/s1cdb8ef73/listen"
+        />
       </div>
     </div>
   );

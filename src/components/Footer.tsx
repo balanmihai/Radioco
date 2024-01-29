@@ -2,7 +2,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const navigation = {
   main: [
-    { name: "Terms Conditions", href: "#" },
+    { name: "Terms and Conditions", href: "#" },
     { name: "Subscription", href: "#" },
   ],
 };
@@ -18,10 +18,10 @@ export default function Footer() {
           <div className="mx-auto max-w-7xl pb-2 pt-2">
             <div className="lg:flex lg:items-center lg:justify-between">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
-                  Romania Online
+                <h3 className="text-md font-bold leading-6 text-gray-900">
+                  România Online
                 </h3>
-                <p className="mt-1 text-sm leading-6 text-gray-600">
+                <p className="text-sm text-gray-600">
                   Copyright {new Date().getFullYear()} &copy;
                 </p>
               </div>
@@ -34,7 +34,7 @@ export default function Footer() {
                   <div key={item.name} className="pb-6">
                     <a
                       href={item.href}
-                      className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+                      className="text-md leading-6 font-semibold underline text-gray-600 hover:text-gray-900"
                     >
                       {item.name}
                     </a>
