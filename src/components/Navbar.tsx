@@ -21,7 +21,7 @@ const Navbar = async () => {
             {/* Logo - Left Aligned */}
             <div className="flex items-center">
               <Link href="/">
-                <Icons.logo className="h-10 w-10" />
+                <img className="h-10" src="./../media/logo.svg" alt="" />
               </Link>
             </div>
             {/* Nav Items - Center Aligned */}

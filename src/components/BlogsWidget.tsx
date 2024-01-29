@@ -25,7 +25,7 @@ export default function BlogsWidget() {
   return (
     <div className="h-auto ">
       <div className="shadow-md bg-white sm:rounded-lg px-6 pt-4 pb-6">
-        <div className="flex justify-between items-center pb-2">
+        <div className="flex justify-between items-center pb-3">
           <h1 className="text-xl font-bold text-start tracking-tight text-gray-900 sm:text-xl">
             Blogs
           </h1>
