@@ -2,11 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com', 'tailwindui.com'],
+    domains: ["images.unsplash.com", "tailwindui.com", "localhost"],
   },
-  env: {
-
-  },
+  env: {},
 }
 
 module.exports = nextConfig

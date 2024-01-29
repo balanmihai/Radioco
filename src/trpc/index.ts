@@ -3,11 +3,11 @@ import { authRouter } from "./auth-router"
 import { publicProcedure, router } from "./trpc"
 import { QueryValidator } from "../lib/validators/query-validator"
 import { getPayloadClient } from "../get-payload"
-// import { paymentRouter } from "./payment-router"
+import { paymentRouter } from "./payment-router"
 
 export const appRouter = router({
   auth: authRouter,
-  // payment: paymentRouter,
+  payment: paymentRouter,
 
   getInfiniteProducts: publicProcedure
     .input(
@@ -33,28 +33,28 @@ export const appRouter = router({
 
       const page = cursor || 1
 
-      // const {
-      //   docs: items,
-      //   hasNextPage,
-      //   nextPage,
-      // } = await payload.find({
-      //   collection: "products",
-      //   where: {
-      //     approvedForSale: {
-      //       equals: "approved",
-      //     },
-      //     ...parsedQueryOpts,
-      //   },
-      //   sort,
-      //   depth: 1,
-      //   limit,
-      //   page,
-      // })
+      const {
+        docs: items,
+        hasNextPage,
+        nextPage,
+      } = await payload.find({
+        collection: "products",
+        where: {
+          approvedForSale: {
+            equals: "approved",
+          },
+          ...parsedQueryOpts,
+        },
+        sort,
+        depth: 1,
+        limit,
+        page,
+      })
 
-      // return {
-      //   items,
-      //   nextPage: hasNextPage ? nextPage : null,
-      // }
+      return {
+        items,
+        nextPage: hasNextPage ? nextPage : null,
+      }
     }),
 })
 
