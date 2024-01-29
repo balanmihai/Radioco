@@ -3,7 +3,7 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 export default function Contact() {
   return (
     <MaxWidthWrapper>
-      <div className="bg-gray-100 py-12 sm:py-12">
+      <div className=" py-12 sm:py-12">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl space-y-16 divide-y divide-gray-100 lg:mx-0 lg:max-w-none">
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
