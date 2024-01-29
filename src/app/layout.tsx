@@ -28,7 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-        <main className="relative flex flex-col min-h-screen ">
+        <main className="relative bg-gray-100 flex flex-col min-h-screen ">
           <Providers>
             <Navbar />
             <ModeToggle />
