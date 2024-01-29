@@ -93,23 +93,10 @@ export const ReceiptEmail = ({
             <Text style={productsTitle}>Order Summary</Text>
           </Section>
           {products.map((product) => {
-            const { image } = product.images[0]
-
             return (
               <Section key={product.id}>
-                <Column style={{ width: "64px" }}>
-                  {typeof image !== "string" && image.url ? (
-                    <Img
-                      src={image.url}
-                      width="64"
-                      height="64"
-                      alt="Product Image"
-                      style={productIcon}
-                    />
-                  ) : null}
-                </Column>
                 <Column style={{ paddingLeft: "22px" }}>
-                  <Text style={productTitle}>{product.name}</Text>
+                  <Text style={productTitle}>{product.title}</Text>
                   {product.description ? (
                     <Text style={productDescription}>
                       {product.description.length > 50

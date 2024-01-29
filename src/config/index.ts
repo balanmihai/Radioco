@@ -16,7 +16,7 @@ export const PRODUCT_CATEGORIES = [
   },
   {
     label: "Blog",
-    value: "blog" as const,
-    href: "/blog",
-  }
+    value: "posts" as const,
+    href: "/posts",
+  },
 ]
