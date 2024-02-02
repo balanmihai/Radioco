@@ -1,8 +1,8 @@
-import AppsWidget from "@/components/AppsWidget";
-import BlogsWidget from "@/components/BlogsWidget";
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import RadioWidget from "@/components/RadioWidget";
-import ScheduleWidget from "@/components/ScheduleWidget";
+import AppsWidget from "@/components/AppsWidget"
+import BlogsWidget from "@/components/BlogsWidget"
+import MaxWidthWrapper from "@/components/MaxWidthWrapper"
+import RadioWidget from "@/components/RadioWidget"
+import ScheduleWidget from "@/components/ScheduleWidget"
 
 export default function Home() {
   return (
@@ -14,5 +14,5 @@ export default function Home() {
         <BlogsWidget />
       </div>
     </MaxWidthWrapper>
-  );
+  )
 }

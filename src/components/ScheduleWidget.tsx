@@ -1,6 +1,7 @@
 "use client";
 
 import React, { Key, useEffect, useState } from "react";
+import SubscriptionOverlay from "./SubscriptionOverlay";
 
 type ScheduleData = {
   data: [
@@ -37,7 +38,8 @@ const ScheduleWidget = () => {
   }, []);
 
   return (
-    <div className="shadow-md bg-white rounded-xl p-6 w-auto h-auto">
+    <div className="relative shadow-md bg-white rounded-xl p-6 w-auto h-auto">
+          <SubscriptionOverlay />
       <div className="flex-row pb-2 flex items-center justify-between">
         <div className="text-lg font-bold text-start tracking-tight text-gray-900 sm:text-xl">
           Schedule

@@ -11,8 +11,6 @@ export default function Subscription() {
   const router = useRouter()
   const [products, setProducts] = useState<Product[]>([])
 
-  // console.log("Products:", products)
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -37,9 +35,28 @@ export default function Subscription() {
       },
     })
 
-    const productIds = products.map((product) => product.id)
+  const handleBuyPlan = async (productId: string) => {
+    const response = await fetch("/pre-checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ productId }),
+    })
 
-  // console.log('Received productIds:', productIds);
+    if (response.ok) {
+      // User is authenticated, proceed with creating a checkout session
+      createCheckoutSession({ productIds: [productId] })
+    } else {
+      const data = await response.json()
+      if (data.redirectUrl) {
+        // Redirect to the sign-in page
+        router.push(data.redirectUrl)
+      }
+    }
+  }
+
+  const productIds = products.map((product) => product.id)
 
   return (
     <div className="bg-white py-24 sm:py-32">
@@ -75,9 +92,7 @@ export default function Subscription() {
                   {product.price} per month if paid annually
                 </p>
                 <button
-                  onClick={() => {
-                    createCheckoutSession({ productIds })
-                  }}
+                  onClick={() => handleBuyPlan(product.id)}
                   disabled={isLoading}
                   aria-describedby={product.id}
                   className="mt-10 block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

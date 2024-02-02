@@ -10,7 +10,7 @@ export const Team: CollectionConfig = {
   slug: "team",
   access: {
     create: isAdmin,
-    read: isAdmin,
+    read: () => true,
     update: isAdmin,
     delete: isAdmin,
   },

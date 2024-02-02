@@ -1,68 +1,70 @@
-"use client";
+"use client"
 
-import React, { useEffect, useState } from "react";
-import AudioButton from "./AudioButton";
+import React, { useEffect, useState } from "react"
+import AudioButton from "./AudioButton"
+import SubscriptionOverlay from "./SubscriptionOverlay"
 
 interface RootObject {
-  status: string;
-  source: Source;
-  collaborators: Collaborator[];
-  relays: Relay[];
-  current_track: Currenttrack;
-  history: History[];
-  logo_url: string;
-  streaming_hostname: string;
-  outputs: Output[];
+  status: string
+  source: Source
+  collaborators: Collaborator[]
+  relays: Relay[]
+  current_track: Currenttrack
+  history: History[]
+  logo_url: string
+  streaming_hostname: string
+  outputs: Output[]
 }
 interface Output {
-  name: string;
-  format: string;
-  bitrate: number;
+  name: string
+  format: string
+  bitrate: number
 }
 interface History {
-  title: string;
+  title: string
 }
 interface Currenttrack {
-  title: string;
-  start_time: string;
-  artwork_url: string;
-  artwork_url_large: string;
+  title: string
+  start_time: string
+  artwork_url: string
+  artwork_url_large: string
 }
 interface Source {
-  type: string;
-  collaborator: Collaborator;
-  relay: Relay;
+  type: string
+  collaborator: Collaborator
+  relay: Relay
 }
 interface Relay {
-  id: number;
-  url: string;
-  status: string;
+  id: number
+  url: string
+  status: string
 }
 interface Collaborator {
-  id: string;
-  name: string;
-  status: string;
+  id: string
+  name: string
+  status: string
 }
 
 const RadioWidget = () => {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState<RootObject>();
-  const url = "https://public.radio.co/stations/sced7c0e79/status";
+  const [isLoading, setLoading] = useState(true)
+  const [data, setData] = useState<RootObject>()
+  const url = "https://public.radio.co/stations/sced7c0e79/status"
 
   const getData = () => {
     fetch(url)
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  };
+      .finally(() => setLoading(false))
+  }
 
   useEffect(() => {
-    getData();
-  }, []);
+    getData()
+  }, [])
 
   return (
-    <div className="shadow-md bg-white sm:rounded-lg p-6 w-auto h-auto">
+    <div className="relative shadow-md bg-white sm:rounded-lg p-6 w-auto h-auto">
+      <SubscriptionOverlay />
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-xl flex items-center font-bold tracking-tight text-gray-900 sm:text-xl">
           <div className="w-4 h-4 rounded-xl bg-red-500 mr-2"></div>Now Playing
@@ -80,7 +82,7 @@ const RadioWidget = () => {
           <img
             className="w-16 h-16 rounded-xl mr-2"
             src={data?.current_track.artwork_url}
-          ></img>
+          />
           <div>
             <h2 className="text-lg font-bold text-start tracking-tight text-gray-900 sm:text-md">
               {data?.current_track.title}
@@ -97,7 +99,7 @@ https://s3.radio.co/s1cdb8ef73/listen"
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RadioWidget;
+export default RadioWidget

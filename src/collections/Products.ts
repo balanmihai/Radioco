@@ -75,7 +75,7 @@ const isAdminOrHasAccess =
 export const Products: CollectionConfig = {
   slug: "products",
   access: {
-    read: isAdminOrHasAccess(),
+    read: () => true,
     update: isAdminOrHasAccess(),
     delete: isAdminOrHasAccess(),
   },

@@ -60,22 +60,23 @@ const start = async () => {
     return
   }
 
-  const cartRouter = express.Router()
+  const preCheckoutRouter = express.Router()
 
-  cartRouter.use(payload.authenticate)
-
-  cartRouter.get("/", (req, res) => {
+  preCheckoutRouter.post("/pre-checkout", payload.authenticate, (req, res) => {
     const request = req as PayloadRequest
 
-    if (!request.user) return res.redirect("/sign-in?origin=cart")
-
-    const parsedUrl = parse(req.url, true)
-    const { query } = parsedUrl
-
-    return nextApp.render(req, res, "/cart", query)
+    if (!request.user) {
+      // User is not authenticated
+      res.status(401).json({ redirectUrl: "/sign-in?origin=subscription" })
+    } else {
+      // User is authenticated, proceed to create a checkout session
+      // (Implement checkout session creation logic here)
+      res.status(200).json({ message: "Authenticated" })
+    }
   })
 
-  app.use("/cart", cartRouter)
+  app.use(preCheckoutRouter)
+
   app.use(
     "/api/trpc",
     trpcExpress.createExpressMiddleware({

@@ -50,7 +50,7 @@ export const paymentRouter = router({
       try {
         const stripeSession = await stripe.checkout.sessions.create({
           success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/thank-you?orderId=${order.id}`,
-          cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/cart`,
+          cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/subscription`,
           payment_method_types: ["card", "paypal"],
           mode: "subscription",
           metadata: {
@@ -89,4 +89,11 @@ export const paymentRouter = router({
 
       return { isPaid: order._isPaid }
     }),
+  // Add this mutation to the paymentRouter in payment-router.ts
+
+  redirectToSubscribe: publicProcedure.mutation(async ({ ctx }) => {
+    // This mutation simply returns the URL to the subscription page.
+    // You may want to add additional logic here if needed.
+    return { url: `${process.env.NEXT_PUBLIC_SERVER_URL}/subscription` }
+  }),
 })

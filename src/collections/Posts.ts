@@ -10,7 +10,7 @@ export const Posts: CollectionConfig = {
   slug: "posts",
   access: {
     create: isAdmin,
-    read: isAdmin,
+    read: () => true,
     update: isAdmin,
     delete: isAdmin,
   },
