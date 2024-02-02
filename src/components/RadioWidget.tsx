@@ -63,7 +63,7 @@ const RadioWidget = () => {
   }, [])
 
   return (
-    <div className="relative shadow-md bg-white sm:rounded-lg p-6 w-auto h-auto">
+    <div className="relative shadow-md bg-white rounded-xl p-6 w-auto h-auto">
       <SubscriptionOverlay />
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-xl flex items-center font-bold tracking-tight text-gray-900 sm:text-xl">

@@ -7,10 +7,16 @@ import ScheduleWidget from "@/components/ScheduleWidget"
 export default function Home() {
   return (
     <MaxWidthWrapper>
-      <div className="mt-12 grid max-w-7xl grid-cols-2 items-start gap-6 sm:my-12  lg:grid-cols-2">
-        <RadioWidget />
-        <AppsWidget />
-        <ScheduleWidget />
+      <div className="flex-wrap lg:columns-2 my-6 max-w-7xl items-start sm:columns-1 ">
+        <div className="mb-5">
+          <RadioWidget />
+        </div>
+        <div className="mb-5">
+          <ScheduleWidget />
+        </div>
+        <div className="mb-5">
+          <AppsWidget />
+        </div>
         <BlogsWidget />
       </div>
     </MaxWidthWrapper>

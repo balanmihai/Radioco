@@ -5,7 +5,7 @@ export const PRODUCT_CATEGORIES = [
     href: "/about_us",
   },
   {
-    label: "Contact Us",
+    label: "Contact",
     value: "contact" as const,
     href: "/contact",
   },
