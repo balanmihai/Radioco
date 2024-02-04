@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react"
 import AudioButton from "./AudioButton"
 import SubscriptionOverlay from "./SubscriptionOverlay"
+import { trpc } from "@/trpc/client"
 
 interface RootObject {
   status: string
@@ -46,25 +47,46 @@ interface Collaborator {
 }
 
 const RadioWidget = () => {
-  const [isLoading, setLoading] = useState(true)
   const [data, setData] = useState<RootObject>()
+  const [isLoading, setLoading] = useState(true)
+  const [isSubscribed, setIsSubscribed] = useState(false)
+  const [isCheckingSubscription, setIsCheckingSubscription] = useState(true)
   const url = "https://public.radio.co/stations/sced7c0e79/status"
 
-  const getData = () => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((json) => setData(json))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false))
-  }
+  const { data: subscriptionData, isLoading: isSubscriptionLoading } =
+    trpc.subscription.checkSubscription.useQuery(undefined, {
+      onError: () => {
+        setIsSubscribed(false)
+        setIsCheckingSubscription(false)
+      },
+      onSuccess: (data) => {
+        setIsSubscribed(data.isSubscribed || data.isAdmin)
+        setIsCheckingSubscription(false)
+      },
+    })
 
   useEffect(() => {
-    getData()
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url)
+        const jsonData = await response.json()
+        setData(jsonData)
+      } catch (error) {
+        console.error("Fetch error:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
+
+  if (isLoading || isCheckingSubscription) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className="relative shadow-md bg-white rounded-xl p-6 w-auto h-auto">
-      <SubscriptionOverlay />
+      {!isSubscribed && <SubscriptionOverlay />}
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-xl flex items-center font-bold tracking-tight text-gray-900 sm:text-xl">
           <div className="w-4 h-4 rounded-xl bg-red-500 mr-2"></div>Now Playing
@@ -87,9 +109,6 @@ const RadioWidget = () => {
             <h2 className="text-lg font-bold text-start tracking-tight text-gray-900 sm:text-md">
               {data?.current_track.title}
             </h2>
-            {/* <p className="text-start text-sm text-gray-500 w-96">
-              With Sam Smith
-            </p> */}
           </div>
         </div>
 

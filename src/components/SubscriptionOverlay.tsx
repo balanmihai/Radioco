@@ -1,5 +1,10 @@
 // SubscriptionOverlay.tsx
 const SubscriptionOverlay = () => {
+  const handleSubscribeClick = () => {
+    // Direct window location change for redirect
+    window.location.href = "/subscription"
+  }
+
   return (
     // Use absolute instead of fixed, and z-index to ensure it overlays the widget
     <div className="absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center z-10">
@@ -9,7 +14,7 @@ const SubscriptionOverlay = () => {
         </h2>
         <button
           className="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition duration-300 ease-in-out"
-          // onClick={handleSubscribeClick}
+          onClick={handleSubscribeClick}
         >
           Subscribe
         </button>
@@ -18,4 +23,4 @@ const SubscriptionOverlay = () => {
   )
 }
 
-export default SubscriptionOverlay;
+export default SubscriptionOverlay

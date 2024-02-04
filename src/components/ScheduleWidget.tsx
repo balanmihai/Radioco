@@ -1,62 +1,75 @@
-"use client";
+"use client"
 
-import React, { Key, useEffect, useState } from "react";
-import moment from "moment";
-import SubscriptionOverlay from "./SubscriptionOverlay";
+import React, { Key, useEffect, useState } from "react"
+import moment from "moment"
+import SubscriptionOverlay from "./SubscriptionOverlay"
+import { trpc } from "@/trpc/client"
 
 type ScheduleData = {
   data: [
     {
-      start?: string;
-      end?: string;
+      start?: string
+      end?: string
       playlist?: {
-        id: Key | null | undefined;
-        name: string;
-        colour: string;
-        artist: string;
-        title: string;
-        artwork: string;
-      };
+        id: React.Key | null | undefined
+        name: string
+        colour: string
+        artist: string
+        title: string
+        artwork: string
+      }
     }
-  ];
-};
+  ]
+}
 
 const ScheduleWidget = () => {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState<ScheduleData>();
-  const url = "https://public.radio.co/stations/s1cdb8ef73/embed/schedule";
+  const [isLoading, setLoading] = useState(true)
+  const [data, setData] = useState<ScheduleData>()
+  const url = "https://public.radio.co/stations/s1cdb8ef73/embed/schedule"
+  const [isSubscribed, setIsSubscribed] = useState(false)
+  const [isCheckingSubscription, setIsCheckingSubscription] = useState(true)
+  const [currentTime, setCurrentTime] = useState("")
+  const [currentDate, setCurrentDate] = useState("")
 
-  const [currentTime, setCurrentTime] = useState("");
-  const [currentDate, setCurrentDate] = useState("");
+  const { data: subscriptionData, isLoading: isSubscriptionLoading } =
+    trpc.subscription.checkSubscription.useQuery(undefined, {
+      onError: () => {
+        setIsSubscribed(false)
+        setIsCheckingSubscription(false)
+      },
+      onSuccess: (data) => {
+        setIsSubscribed(data.isSubscribed || data.isAdmin)
+        setIsCheckingSubscription(false)
+      },
+    })
 
   const getData = () => {
     fetch(url)
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  };
+      .finally(() => setLoading(false))
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
-      var time = moment().format(" hh:mm A");
-      setCurrentTime(time);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+      setCurrentTime(moment().format("hh:mm A"))
+      setCurrentDate(moment().format("YYYY-MM-DD"))
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
 
-  useEffect(() => {
-    var date = moment().format("yyyy-MM-DD");
-    setCurrentDate(date);
-  }, []);
-
-  useEffect(() => {
-    getData();
-  }, []);
+  if (isLoading || isCheckingSubscription) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className="relative shadow-md bg-white rounded-xl p-6 w-auto h-auto">
-          <SubscriptionOverlay />
+      {!isSubscribed && <SubscriptionOverlay />}
       <div className="flex-row pb-2 flex items-center justify-between">
         <div className="text-lg font-bold text-start tracking-tight text-gray-900 sm:text-xl">
           Schedule
@@ -99,7 +112,7 @@ const ScheduleWidget = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ScheduleWidget;
+export default ScheduleWidget

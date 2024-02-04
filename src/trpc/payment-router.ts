@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { privateProcedure, publicProcedure, router } from "./trpc"
+import { privateProcedure, router } from "./trpc"
 import { TRPCError } from "@trpc/server"
 import { getPayloadClient } from "../get-payload"
 import { stripe } from "../lib/stripe"
@@ -89,11 +89,4 @@ export const paymentRouter = router({
 
       return { isPaid: order._isPaid }
     }),
-  // Add this mutation to the paymentRouter in payment-router.ts
-
-  redirectToSubscribe: publicProcedure.mutation(async ({ ctx }) => {
-    // This mutation simply returns the URL to the subscription page.
-    // You may want to add additional logic here if needed.
-    return { url: `${process.env.NEXT_PUBLIC_SERVER_URL}/subscription` }
-  }),
 })
