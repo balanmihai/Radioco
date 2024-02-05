@@ -1,7 +1,7 @@
 const SideLinks = () => {
   return (
     <div className="flex">
-      <ul className="fixed top-1/2 right-2 flex flex-col gap-2">
+      <ul className="fixed z-10000 top-1/2 right-2 flex flex-col gap-2">
         <li className="rounded-md shadow-md bg-white p-1 h-auto w-auto">
           <a
             href="#"
@@ -62,7 +62,7 @@ const SideLinks = () => {
         </li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default SideLinks
+export default SideLinks;
