@@ -60,6 +60,8 @@ const start = async () => {
     return
   }
 
+
+
   const preCheckoutRouter = express.Router()
 
   preCheckoutRouter.post("/pre-checkout", payload.authenticate, (req, res) => {
@@ -74,6 +76,7 @@ const start = async () => {
       res.status(200).json({ message: "Authenticated" })
     }
   })
+
 
   app.use(preCheckoutRouter)
 

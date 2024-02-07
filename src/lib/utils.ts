@@ -58,7 +58,7 @@ export function constructMetadata({
       creator: "@filipsunfire",
     },
     icons,
-    metadataBase: new URL("https://localhost:3000"),
+    metadataBase: new URL("https://radioco.vercel.app"),
     ...(noIndex && {
       robots: {
         index: false,

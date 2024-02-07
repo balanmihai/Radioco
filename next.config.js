@@ -18,6 +18,11 @@ const nextConfig = {
         hostname: "localhost",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "radioco.vercel.app",
+        pathname: "**",
+      },
     ],
   },
   env: {},
