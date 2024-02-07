@@ -23,6 +23,16 @@ const nextConfig = {
         hostname: "radioco.vercel.app",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "is1-ssl.mzstatic.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "is4-ssl.mzstatic.com",
+        pathname: "**",
+      },
     ],
   },
   env: {},

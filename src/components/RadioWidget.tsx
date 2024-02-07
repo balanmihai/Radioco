@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 import AudioButton from "./AudioButton"
 import SubscriptionOverlay from "./SubscriptionOverlay"
 import { trpc } from "@/trpc/client"
+import Image from "next/image"
 
 interface RootObject {
   status: string
@@ -103,7 +104,10 @@ const RadioWidget = () => {
         <div className="flex justify-between items-center">
           <img
             className="w-16 h-16 rounded-xl mr-2"
-            src={data?.current_track.artwork_url}
+            src={data?.current_track.artwork_url ?? ""}
+            alt="Radio Romania"
+            // width={64}
+            // height={64}
           />
           <div>
             <h2 className="text-lg font-bold text-start tracking-tight text-gray-900 sm:text-md">
