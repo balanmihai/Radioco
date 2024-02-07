@@ -22,8 +22,19 @@ const nextConfig = {
         hostname: "radioco.vercel.app",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "public.radio.co",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.radio.co",
+        pathname: "**",
+      },
     ],
   },
+  reactStrictMode: true,
 }
 
 module.exports = nextConfig
