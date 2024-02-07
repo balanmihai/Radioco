@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   images: {
     remotePatterns: [
       {
@@ -23,19 +22,8 @@ const nextConfig = {
         hostname: "radioco.vercel.app",
         pathname: "**",
       },
-      {
-        protocol: "https",
-        hostname: "is1-ssl.mzstatic.com",
-        pathname: "**",
-      },
-      {
-        protocol: "https",
-        hostname: "is4-ssl.mzstatic.com",
-        pathname: "**",
-      },
     ],
   },
-  env: {},
 }
 
 module.exports = nextConfig
