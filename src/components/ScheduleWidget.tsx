@@ -81,34 +81,32 @@ const ScheduleWidget = () => {
 
       <div className="h-96 overflow-y-scroll no-scrollbar">
         {isLoading ? (
-          <>loading</>
+          <div>Loading...</div>
         ) : (
-          data?.data.map((data) => (
-            <>
-              {data.end &&
-              new Date(data.end.slice(0, -15)) >= new Date(currentDate) ? (
-                <div
-                  key={data.playlist?.id}
-                  className="flex flex-row justify-between py-4 items-center"
-                >
-                  <div className="flex-col">
-                    <div className=" text-md font-semibold text-gray-900  shrink-0">
-                      {moment(data.end?.slice(0, -15)).format("dddd")}
-                    </div>
-                    <div className=" text-md font-normal text-gray-500  dark:text-gray-400 shrink-0">
-                      {data.start?.slice(11, -9)} - {data.end?.slice(11, -9)}
-                    </div>
+          data?.data.map((item, index) => {
+            // Use index to ensure uniqueness if necessary
+            const keyId = item.playlist?.id || `schedule-${index}` // Fallback to using index if id is undefined
+            return item.end &&
+              new Date(item.end.slice(0, -15)) >= new Date(currentDate) ? (
+              <div
+                key={keyId} // Ensure key is unique
+                className="flex flex-row justify-between py-4 items-center"
+              >
+                <div className="flex-col">
+                  <div className=" text-md font-semibold text-gray-900  shrink-0">
+                    {moment(item.end?.slice(0, -15)).format("dddd")}
                   </div>
-
-                  <div className="text-md font-semibold text-right pr-2 text-gray-900 w-36">
-                    {data.playlist?.title}
+                  <div className=" text-md font-normal text-gray-500  dark:text-gray-400 shrink-0">
+                    {item.start?.slice(11, -9)} - {item.end?.slice(11, -9)}
                   </div>
                 </div>
-              ) : (
-                <></>
-              )}
-            </>
-          ))
+
+                <div className="text-md font-semibold text-right pr-2 text-gray-900 w-36">
+                  {item.playlist?.title}
+                </div>
+              </div>
+            ) : null
+          })
         )}
       </div>
     </div>

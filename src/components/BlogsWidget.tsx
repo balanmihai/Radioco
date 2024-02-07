@@ -1,27 +1,24 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import { Carousel } from "flowbite-react";
-import Image from "next/image";
-import { Post } from "../payload-types";
-import Link from "next/link";
+"use client"
+import { useEffect, useState } from "react"
+import { Carousel } from "flowbite-react"
+import Image from "next/image"
+import { Post } from "../payload-types"
+import Link from "next/link"
 
 export default function BlogsWidget() {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<Post[]>([])
 
   useEffect(() => {
     async function fetchPosts() {
-      // Fetch logic similar to your Posts component
-      // Update the endpoint if necessary
-      const response = await fetch("/api/posts");
+      const response = await fetch("/api/posts")
       if (response.ok) {
-        const data = await response.json();
-        setPosts(data.docs || []);
+        const data = await response.json()
+        setPosts(data.docs || [])
       }
     }
 
-    fetchPosts();
-  }, []);
+    fetchPosts()
+  }, [])
 
   return (
     <div className="h-auto">
@@ -45,28 +42,32 @@ export default function BlogsWidget() {
               let imageUrl =
                 post.mainPhoto && typeof post.mainPhoto === "object"
                   ? post.mainPhoto.url
-                  : "";
-              return imageUrl ? (
-                <Link href={"/posts/" + post.id}>
-                  <div className="relative hover:pointer flex justify-center items-center">
-                    <Image
-                      className="brightness-90 ease-in duration-100 hover:brightness-95"
-                      key={post.id}
-                      width={600}
-                      height={600}
-                      src={imageUrl}
-                      alt={post.title}
-                    />
-                    <h1 className="absolute text-2xl text-white font-bold bottom-5 left-5">
-                      {post.title}
-                    </h1>
+                  : ""
+              return (
+                imageUrl && (
+                  <div
+                    key={post.id}
+                    className="relative hover:pointer flex justify-center items-center"
+                  >
+                    <Link href={"/posts/" + post.id}>
+                      <Image
+                        className="brightness-90 ease-in duration-100 hover:brightness-95"
+                        width={600}
+                        height={600}
+                        src={imageUrl}
+                        alt={post.title}
+                      />
+                      <h1 className="absolute text-2xl text-white font-bold bottom-5 left-5">
+                        {post.title}
+                      </h1>
+                    </Link>
                   </div>
-                </Link>
-              ) : null;
+                )
+              )
             })}
           </Carousel>
         </div>
       </div>
     </div>
-  );
+  )
 }
