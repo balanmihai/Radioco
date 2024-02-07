@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react"
 import AudioButton from "./AudioButton"
 import SubscriptionOverlay from "./SubscriptionOverlay"
 import { trpc } from "@/trpc/client"
-import Image from "next/image"
+
 
 interface RootObject {
   status: string

@@ -3,7 +3,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 const navigation = {
   main: [
     { name: "Terms and Conditions", href: "#" },
-    { name: "Subscription", href: "#" },
+    { name: "Subscription", href: "/subscription" },
   ],
 };
 
