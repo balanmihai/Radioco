@@ -19,7 +19,12 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "radioco.vercel.app",
+        hostname: "radioco-production.up.railway.app",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.radio.co",
         pathname: "**",
       },
       {
