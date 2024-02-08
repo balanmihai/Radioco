@@ -8,7 +8,7 @@ import { Product, User } from "@/payload-types"
 import { formatPrice } from "@/lib/utils"
 import Link from "next/link"
 import PaymentStatus from "@/components/PaymentStatus"
-import ThankYou from "/media/checkout-thank-you.jpg"
+import ThankYou from "../../media/checkout-thank-you.jpg"
 
 interface PageProps {
   searchParams: {
