@@ -7,6 +7,7 @@ import { getServerSideUser } from "@/lib/payload-utils"
 import { buttonVariants } from "./ui/button"
 import UserAccountNav from "./UserAccountNav"
 import Image from "next/image"
+import Logo from "./../media/logo.svg"
 
 const Navbar = async () => {
   const nextCookies = cookies()
@@ -22,13 +23,7 @@ const Navbar = async () => {
             {/* Logo - Left Aligned */}
             <div className="flex items-center">
               <Link href="/">
-                <Image
-                  className="h-10"
-                  src="./../media/logo.svg"
-                  alt=""
-                  height={150}
-                  width={150}
-                />
+                <Image src={Logo} alt="" priority height={150} width={150} />
               </Link>
             </div>
             {/* Nav Items - Center Aligned */}

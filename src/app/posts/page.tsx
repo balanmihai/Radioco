@@ -16,7 +16,6 @@ export default function Posts() {
         const response = await fetch("/api/posts")
         if (response.ok) {
           const data = await response.json()
-          console.log("Fetched posts:", data) // Log the fetched posts
           setPosts(data.docs || [])
         } else {
           console.error("Failed to fetch posts:", response.statusText)
@@ -64,8 +63,10 @@ export default function Posts() {
                           <Image
                             src={imageUrl}
                             alt={post.title}
-                            layout="fill"
-                            objectFit="cover"
+                            fill
+                            priority
+                            sizes="100%"
+                            style={{ objectFit: "cover" }}
                             className="rounded-t-2xl"
                           />
                         </div>

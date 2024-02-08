@@ -54,6 +54,7 @@ export default function BlogsWidget() {
                         className="brightness-90 ease-in duration-100 hover:brightness-95"
                         width={600}
                         height={600}
+                        priority
                         src={imageUrl}
                         alt={post.title}
                       />
