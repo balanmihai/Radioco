@@ -1,8 +1,8 @@
 const SideLinks = () => {
   return (
     <div className="flex">
-      <ul className="fixed z-10000 top-1/2 right-2 flex flex-col gap-2">
-        <li className="rounded-md shadow-md bg-white p-1 h-auto w-auto">
+      <ul className="fixed z-10 top-1/2 right-2 flex flex-col gap-2">
+        <li className="rounded-md shadow-xl bg-white p-1 h-auto w-auto">
           <a
             href="#"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
