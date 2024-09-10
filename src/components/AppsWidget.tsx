@@ -1,6 +1,7 @@
-import Image from "next/image"
-import appleStore from "../media/appstore.png"
-import googleStore from "../media/googlestore.png"
+import Image from "next/image";
+import appleStore from "../media/appstore.png";
+import googleStore from "../media/googlestore.png";
+import Link from "next/link";
 
 const AppsWidget = () => {
   return (
@@ -14,23 +15,27 @@ const AppsWidget = () => {
         </p>
       </div>
       <div>
-        <Image
-          width={130}
-          height={100}
-          className="cursor-pointer mb-2"
-          src={appleStore}
-          alt=""
-        />
-        <Image
-          width={130}
-          height={100}
-          className="cursor-pointer"
-          src={googleStore}
-          alt=""
-        />
+        <Link href="https://www.example.com/">
+          <Image
+            width={150}
+            height={100}
+            className="mb-2"
+            src={appleStore}
+            alt=""
+          />
+        </Link>
+        <Link href="https://play.google.com/store/apps/details?id=com.bala.url.radioromaniaonline&hl=en-US&ah=e41NsO8ClIr0WT1OPIck4-D3w5s">
+          <Image
+            width={150}
+            height={100}
+            className="mb-2"
+            src={googleStore}
+            alt=""
+          />
+        </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AppsWidget
+export default AppsWidget;

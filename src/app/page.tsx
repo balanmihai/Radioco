@@ -17,7 +17,7 @@ export default function Home() {
         <div className="mb-5">
           <AppsWidget />
         </div>
-        <BlogsWidget />
+        {/* <BlogsWidget /> */}
       </div>
     </MaxWidthWrapper>
   );

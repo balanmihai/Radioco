@@ -20,12 +20,10 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className={cn("relative h-full font-sans antialiased")}>
         <main className="relative bg-gray-100 flex flex-col min-h-screen ">
-          <Providers>
             <Navbar />
             <div className="flex-grow flex-1">{children}</div>
             <Footer />
             <SideLinks />
-          </Providers>
         </main>
         <Toaster position="top-center" richColors />
       </body>

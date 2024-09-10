@@ -1,10 +1,7 @@
 import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const navigation = {
-  main: [
-    { name: "Terms and Conditions", href: "#" },
-    { name: "Subscription", href: "/subscription" },
-  ],
+  main: [{ name: "Terms and Conditions", href: "terms" }],
 };
 
 export default function Footer() {
@@ -43,26 +40,13 @@ export default function Footer() {
               </nav>
 
               <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
-                <button
-                  type="submit"
+                <a
+                  href="mailto:vladtoma@gmail.com"
                   className="flex w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6 mr-2"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-                    />
-                  </svg>
+              
                   hello@radionline.com
-                </button>
+                </a>
               </div>
             </div>
           </div>

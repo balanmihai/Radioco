@@ -10,13 +10,8 @@ export const PRODUCT_CATEGORIES = [
     href: "/contact",
   },
   {
-    label: "Subscription",
-    value: "subscription" as const,
-    href: "/subscription",
-  },
-  {
     label: "Blog",
     value: "posts" as const,
     href: "/posts",
   },
-]
+];

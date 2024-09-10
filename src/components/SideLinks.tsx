@@ -4,7 +4,8 @@ const SideLinks = () => {
       <ul className="fixed z-10 top-1/2 right-2 flex flex-col gap-2">
         <li className="rounded-md shadow-xl bg-white p-1 h-auto w-auto">
           <a
-            href="#"
+            href="https://www.instagram.com/romania.online.radio/"
+            target="_blank"
             className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
           >
             <svg
@@ -21,7 +22,7 @@ const SideLinks = () => {
             </svg>
           </a>
         </li>
-
+        {/* 
         <li className="rounded-md shadow-md bg-white p-1 h-auto w-auto">
           <a
             href="#"
@@ -59,7 +60,7 @@ const SideLinks = () => {
               ></path>
             </svg>
           </a>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

@@ -54,7 +54,12 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "s3.radio.co",
+        hostname: "s4.radio.co",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "media.radio.co",
         pathname: "**",
       },
     ],
