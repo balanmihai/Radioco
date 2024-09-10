@@ -27,7 +27,7 @@ export function formatPrice(
 
 export function constructMetadata({
   title = "Romania Online - Comunitate in strainatate",
-  description = "Romania Online, Radioul Romanilor din Marea Britanie",
+  description = "Radioul Romanilor din Marea Britanie",
   image = "/thumbnail.png",
   icons = "/favicon.ico",
   noIndex = false,
