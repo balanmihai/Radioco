@@ -1,42 +1,42 @@
-import { type ClassValue, clsx } from "clsx"
-import { Metadata } from "next"
-import { twMerge } from "tailwind-merge"
+import { type ClassValue, clsx } from "clsx";
+import { Metadata } from "next";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export function formatPrice(
   price: number | string,
   options: {
-    currency?: "USD" | "EUR" | "GBP" | "BDT"
-    notation?: Intl.NumberFormatOptions["notation"]
+    currency?: "USD" | "EUR" | "GBP" | "BDT";
+    notation?: Intl.NumberFormatOptions["notation"];
   } = {}
 ) {
-  const { currency = "USD", notation = "compact" } = options
+  const { currency = "USD", notation = "compact" } = options;
 
-  const numericPrice = typeof price === "string" ? parseFloat(price) : price
+  const numericPrice = typeof price === "string" ? parseFloat(price) : price;
 
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency,
     notation,
     maximumFractionDigits: 2,
-  }).format(numericPrice)
+  }).format(numericPrice);
 }
 
 export function constructMetadata({
   title = "Romania Online - Comunitate in strainatate",
-  description = "RadioRomania is an open-source marketplace for high-quality digital goods.",
+  description = "Romania Online, Radioul Romanilor din Marea Britanie",
   image = "/thumbnail.png",
   icons = "/favicon.ico",
   noIndex = false,
 }: {
-  title?: string
-  description?: string
-  image?: string
-  icons?: string
-  noIndex?: boolean
+  title?: string;
+  description?: string;
+  image?: string;
+  icons?: string;
+  noIndex?: boolean;
 } = {}): Metadata {
   return {
     title,
@@ -65,5 +65,5 @@ export function constructMetadata({
         follow: false,
       },
     }),
-  }
+  };
 }
