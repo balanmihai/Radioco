@@ -23,7 +23,7 @@ export default function Footer() {
                 </p>
               </div>
 
-              <nav
+              {/* <nav
                 className="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12"
                 aria-label="Footer"
               >
@@ -37,7 +37,7 @@ export default function Footer() {
                     </a>
                   </div>
                 ))}
-              </nav>
+              </nav> */}
 
               <div className="mt-4 sm:ml-4 sm:flex-shrink-0">
                 <a

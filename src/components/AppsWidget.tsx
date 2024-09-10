@@ -17,7 +17,7 @@ const AppsWidget = () => {
       <div className="flex items-center justify-between pt-3 lg:flex-col">
         <Link href="https://www.example.com/">
           <Image
-            width={150}
+            width={140}
             height={100}
             className="mb-2"
             src={appleStore}
@@ -26,7 +26,7 @@ const AppsWidget = () => {
         </Link>
         <Link href="https://play.google.com/store/apps/details?id=com.bala.url.radioromaniaonline&hl=en-US&ah=e41NsO8ClIr0WT1OPIck4-D3w5s">
           <Image
-            width={150}
+            width={140}
             height={100}
             className="mb-2"
             src={googleStore}
