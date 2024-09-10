@@ -12,7 +12,7 @@ const Navbar = async () => {
           <div className="flex justify-between items-center h-16">
             {/* Ensures full width with space between items */}
             {/* Logo - Left Aligned */}
-            <div className="flex items-center">
+            <div className="flex items-center pr-2">
               <Link href="/">
                 <Image src={Logo} alt="" priority height={200} width={200} />
               </Link>

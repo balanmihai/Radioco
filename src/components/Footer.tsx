@@ -28,7 +28,7 @@ export default function Footer() {
                 aria-label="Footer"
               >
                 {navigation.main.map((item) => (
-                  <div key={item.name} className="pb-6">
+                  <div key={item.name} className=" py-6 lg:px-6">
                     <a
                       href={item.href}
                       className="text-md leading-6 font-semibold underline text-gray-600 hover:text-gray-900"
@@ -44,7 +44,6 @@ export default function Footer() {
                   href="mailto:vladtoma@gmail.com"
                   className="flex w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
                 >
-              
                   hello@radionline.com
                 </a>
               </div>

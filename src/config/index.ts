@@ -1,6 +1,6 @@
 export const PRODUCT_CATEGORIES = [
   {
-    label: "About Us",
+    label: "About",
     value: "about_us" as const,
     href: "/about_us",
   },

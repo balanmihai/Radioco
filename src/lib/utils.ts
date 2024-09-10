@@ -26,7 +26,7 @@ export function formatPrice(
 }
 
 export function constructMetadata({
-  title = "RadioRomania - the marketplace for digital assets",
+  title = "Romania Online - Comunitate in strainatate",
   description = "RadioRomania is an open-source marketplace for high-quality digital goods.",
   image = "/thumbnail.png",
   icons = "/favicon.ico",

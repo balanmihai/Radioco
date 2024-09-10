@@ -54,7 +54,7 @@ const ScheduleWidget = () => {
   return (
     <div className="relative shadow-md bg-white rounded-xl p-6 w-auto h-auto">
       <div className="flex-row pb-2 flex items-center justify-between">
-        <div className="text-lg font-bold text-start tracking-tight text-gray-900 sm:text-xl">
+        <div className="text-md font-bold text-start tracking-tight text-gray-900 sm:text-xl">
           Schedule
         </div>
         <div className="text-md font-semibold text-start tracking-tight text-gray-900">
@@ -62,7 +62,7 @@ const ScheduleWidget = () => {
         </div>
       </div>
 
-      <div className="h-screen">
+      <div className="h-auto lg:h-screen">
         {isLoading ? (
           <div>Loading...</div>
         ) : (
