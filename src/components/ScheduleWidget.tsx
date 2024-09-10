@@ -62,7 +62,7 @@ const ScheduleWidget = () => {
         </div>
       </div>
 
-      <div className="h-96 overflow-y">
+      <div className="h-screen">
         {isLoading ? (
           <div>Loading...</div>
         ) : (

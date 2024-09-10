@@ -1,24 +1,24 @@
-"use client"
-import { useEffect, useState } from "react"
-import { Carousel } from "flowbite-react"
-import Image from "next/image"
-import { Post } from "../payload-types"
-import Link from "next/link"
+"use client";
+import { useEffect, useState } from "react";
+import { Carousel } from "flowbite-react";
+import Image from "next/image";
+import { Post } from "../payload-types";
+import Link from "next/link";
 
 export default function BlogsWidget() {
-  const [posts, setPosts] = useState<Post[]>([])
+  const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     async function fetchPosts() {
-      const response = await fetch("/api/posts")
+      const response = await fetch("/api/posts");
       if (response.ok) {
-        const data = await response.json()
-        setPosts(data.docs || [])
+        const data = await response.json();
+        setPosts(data.docs || []);
       }
     }
 
-    fetchPosts()
-  }, [])
+    fetchPosts();
+  }, []);
 
   return (
     <div className="h-auto">
@@ -42,7 +42,7 @@ export default function BlogsWidget() {
               let imageUrl =
                 post.mainPhoto && typeof post.mainPhoto === "object"
                   ? post.mainPhoto.url
-                  : ""
+                  : "";
               return (
                 imageUrl && (
                   <div
@@ -64,11 +64,11 @@ export default function BlogsWidget() {
                     </Link>
                   </div>
                 )
-              )
+              );
             })}
           </Carousel>
         </div>
       </div>
     </div>
-  )
+  );
 }

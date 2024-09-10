@@ -30,9 +30,10 @@ export default function Contact() {
                       <dd>
                         <a
                           className="font-semibold text-red-500"
-                          href="mailto:collaborate@example.com"
+                          href="mailto:vladtoma@gmail.com
+"
                         >
-                          collaborate@example.com
+                          vladtoma@gmail.com
                         </a>
                       </dd>
                     </div>
@@ -52,9 +53,10 @@ export default function Contact() {
                       <dd>
                         <a
                           className="font-semibold text-red-500"
-                          href="mailto:press@example.com"
+                          href="mailto:tgvt@yahoo.com
+"
                         >
-                          press@example.com
+                          tgvt@yahoo.com
                         </a>
                       </dd>
                     </div>

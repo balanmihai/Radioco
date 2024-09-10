@@ -7,7 +7,7 @@ import ScheduleWidget from "@/components/ScheduleWidget";
 export default function Home() {
   return (
     <MaxWidthWrapper>
-      <div className="flex-wrap lg:columns-2 my-6 max-w-7xl items-start sm:columns-1  px-6 lg:px-8">
+      <div className="flex-wrap lg:columns-2 h-full my-6 max-w-7xl items-start sm:columns-1  px-6 lg:px-8">
         <div className="mb-5">
           <RadioWidget />
         </div>

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import AudioButton from "./AudioButton";
 import Image from "next/image";
+import Logo from "./../media/logo.png";
 
 interface RootObject {
   status: string;
@@ -96,7 +97,7 @@ const RadioWidget = () => {
         <div className="flex justify-between items-center">
           <Image
             className="w-16 h-16 rounded-xl mr-2"
-            src={data?.current_track.artwork_url || ""}
+            src={data?.current_track.artwork_url || Logo}
             alt="Radio Romania"
             width={64}
             height={64}
