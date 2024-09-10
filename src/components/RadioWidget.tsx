@@ -103,7 +103,7 @@ const RadioWidget = () => {
             height={64}
           />
           <div>
-            <h2 className="text-lg font-bold  tracking-tight text-gray-900 sm:text-md">
+            <h2 className="text-lg font-bold tracking-tight text-gray-900 sm:text-md pr-1">
               {data?.current_track.title}
             </h2>
           </div>

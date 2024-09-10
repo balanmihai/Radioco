@@ -39,7 +39,7 @@ export default function Footer() {
                 ))}
               </nav>
 
-              <div className="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
+              <div className="mt-4 sm:ml-4 sm:flex-shrink-0">
                 <a
                   href="mailto:vladtoma@gmail.com"
                   className="flex w-full items-center justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"

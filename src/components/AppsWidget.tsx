@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const AppsWidget = () => {
   return (
-    <div className="flex shadow-md bg-white rounded-xl p-6 w-full justify-between">
+    <div className=" shadow-md bg-white rounded-xl p-6 w-full justify-between lg:flex">
       <div>
         <h1 className="text-xl font-bold text-start tracking-tight text-gray-900 sm:text-xl">
           Listen Everywhere
@@ -14,7 +14,7 @@ const AppsWidget = () => {
           Connect with all your devices like Alexa, Google Home or your car.
         </p>
       </div>
-      <div>
+      <div className="flex items-center justify-between pt-3 lg:flex-col">
         <Link href="https://www.example.com/">
           <Image
             width={150}
