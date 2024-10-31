@@ -12,11 +12,12 @@ export default function Contact() {
                   Contact
                 </h2>
                 <h2 className=" mt-2 text-3xl font-bold tracking-tight text-gray-900">
-                  Get in touch
+                  Hai să ne auzim!
                 </h2>
                 <p className="mt-4 leading-7 text-gray-600">
-                  Quam nunc nunc eu sed. Sed rhoncus quis ultricies ac
-                  pellentesque.
+                  Dacă ai o întrebare, propunere sau dacă doar vrei să ne
+                  comunici ceva, nu ezita să ne trimiți un mesaj prin
+                  mail sau telefon.
                 </p>
               </div>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
