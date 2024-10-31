@@ -31,10 +31,10 @@ export default function Contact() {
                       <dd>
                         <a
                           className="font-semibold text-red-500"
-                          href="mailto:vlad.toma@romaniaonline.net"
+                          href="mailto:contact@romaniaonline.net"
                           rel="noopener noreferrer" // For security, though often irrelevant for mailto
                         >
-                          vlad.toma@romaniaonline.net
+                          contact@romaniaonline.net
                         </a>
                       </dd>
                     </div>
