@@ -23,7 +23,7 @@ export default function Contact() {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
                 <div className="rounded-2xl shadow-lg bg-white p-10">
                   <h3 className="text-base font-semibold leading-7 text-gray-900">
-                    Collaborate
+                    Colaborări
                   </h3>
                   <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
                     <div>
@@ -31,10 +31,10 @@ export default function Contact() {
                       <dd>
                         <a
                           className="font-semibold text-red-500"
-                          href="mailto: contact@romaniaonline.net
-"
+                          href="mailto:vlad.toma@romaniaonline.net"
+                          rel="noopener noreferrer" // For security, though often irrelevant for mailto
                         >
-                          contact@romaniaonline.net
+                          vlad.toma@romaniaonline.net
                         </a>
                       </dd>
                     </div>
@@ -46,7 +46,7 @@ export default function Contact() {
                 </div>
                 <div className="rounded-2xl shadow-lg bg-white p-10">
                   <h3 className="text-base font-semibold leading-7 text-gray-900">
-                    Press
+                    Vânzări
                   </h3>
                   <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
                     <div>
@@ -54,44 +54,18 @@ export default function Contact() {
                       <dd>
                         <a
                           className="font-semibold text-red-500"
-                          href="mailto: contact@romaniaonline.net
+                          href="mailto:sales@romaniaonline.net
 "
                         >
-                          contact@romaniaonline.net
+                          sales@romaniaonline.net
                         </a>
                       </dd>
-                    </div>
-                    <div className="mt-1">
-                      <dt className="sr-only">Phone number</dt>
-                      <dd>+44 131 618 7000</dd>
-                    </div>
-                  </dl>
-                </div>
-                {/* <div className="rounded-2xl shadow-lg bg-white p-10">
-                  <h3 className="text-base font-semibold leading-7 text-gray-900">
-                    Join our team
-                  </h3>
-                  <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
-                    <div>
-                      <dt className="sr-only">Email</dt>
-                      <dd>
-                        <a
-                          className="font-semibold text-red-500"
-                          href="mailto:careers@example.com"
-                        >
-                          careers@example.com
-                        </a>
-                      </dd>
-                    </div>
-                    <div className="mt-1">
-                      <dt className="sr-only">Phone number</dt>
-                      <dd>+1 (555) 905-4567</dd>
                     </div>
                   </dl>
                 </div>
                 <div className="rounded-2xl shadow-lg bg-white p-10">
                   <h3 className="text-base font-semibold leading-7 text-gray-900">
-                    Say hello
+                    Emisiuni
                   </h3>
                   <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
                     <div>
@@ -99,18 +73,32 @@ export default function Contact() {
                       <dd>
                         <a
                           className="font-semibold text-red-500"
-                          href="mailto:hello@example.com"
+                          href="mailto:emisiuni@romaniaonline.net"
                         >
-                          hello@example.com
+                          emisiuni@romaniaonline.net
                         </a>
                       </dd>
                     </div>
-                    <div className="mt-1">
-                      <dt className="sr-only">Phone number</dt>
-                      <dd>+1 (555) 905-5678</dd>
+                  </dl>
+                </div>
+                <div className="rounded-2xl shadow-lg bg-white p-10">
+                  <h3 className="text-base font-semibold leading-7 text-gray-900">
+                    Alatură-te Echipei
+                  </h3>
+                  <dl className="mt-3 space-y-1 text-sm leading-6 text-gray-600">
+                    <div>
+                      <dt className="sr-only">Email</dt>
+                      <dd>
+                        <a
+                          className="font-semibold text-red-500"
+                          href="mailto:echipa@romaniaonline.net"
+                        >
+                          echipa@romaniaonline.net
+                        </a>
+                      </dd>
                     </div>
                   </dl>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
