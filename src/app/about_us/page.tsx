@@ -25,17 +25,56 @@ export default function About() {
     <MaxWidthWrapper>
       <div className="lg:py-24 py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
+          <div className="mx-auto max-w-4xl lg:mx-0">
             <h2 className="text-base font-semibold leading-7 text-red-500">
               Meet
             </h2>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900">
-              Our team
+              Suntem postul de radio online dedicat românilor din Marea
+              Britanie!
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              We’re a dynamic group of individuals who are passionate about what
-              we do and dedicated to delivering the best results for our
-              clients.
+              Iar misiunea noastră este să închegăm și să contribuim la
+              dezvoltarea comunității de români, dându-i o voce și un spațiu în
+              care să se exprime și să poată fi auzită. Cum ne propunem să facem
+              asta? Răspunsul este simplu:
+            </p>
+
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Prin emisiuni realizate de jurnaliști cu experiență unde vor fi
+              dezbătute subiectele care ne apasă cel mai mult în străinătate, și
+              nu numai - emisiuni cu sfaturi legale, știri politice nepartizane
+              și actualități din toate domeniile sau interviuri cu români care
+              au reușit să facă lucruri impresionante aici, în UK, în ciuda
+              tuturor dificultăților pe care le întâmpină un străin.
+            </p>
+
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Prin muzică românească și din străinătate, care să ne lumineze
+              zilele care sunt mai mereu ploioase.
+            </p>
+
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Prin evenimente și promovări care să ne ajute să auzim unii de
+              alții și să ne mențină inima românească și să ne păstreze cultura
+              vie, în ciuda faptului că suntem foarte departe de casă.
+            </p>
+
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Toate acestea, și nu numai, ne vor ajuta să creăm cu adevărat o
+              Comunitate în Străinătate, unde fiecare român poate să-și exprime
+              părerile, întrebările și temerile într-un spațiu sigur, românesc
+              și al nostru.
+            </p>
+
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Stai la curent cu ultimele știri despre România Online descărcând
+              aplicația de pe App Store sau Google Play și urmărindu-ne paginile
+              de Instagram și Facebook, link-uri pe care le accesezi prin
+              butoanele din dreapta paginii.
+            </p>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Până data viitoare!
             </p>
           </div>
           <ul

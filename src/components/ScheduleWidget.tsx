@@ -24,7 +24,7 @@ const ScheduleWidget = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState<ScheduleData>();
   const url = "https://public.radio.co/stations/sb6e6793c6/embed/schedule";
-  const [currentTime, setCurrentTime] = useState(moment());
+  const [currentTime, setCurrentTime] = useState("");
 
   const getData = () => {
     fetch(url)
@@ -40,7 +40,7 @@ const ScheduleWidget = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(moment());
+      setCurrentTime(moment().format("HH:mm"));
     }, 1000);
     return () => clearInterval(interval);
   }, []);
@@ -56,41 +56,32 @@ const ScheduleWidget = () => {
           Schedule
         </div>
         <div className="text-md font-semibold text-start tracking-tight text-gray-900">
-          {currentTime.format("HH:mm")}
+          {currentTime}
         </div>
       </div>
 
       <div className="h-auto max-h-[60vh] overflow-y-auto">
         {data?.data
-          .filter((item) => moment(item.end).isAfter(currentTime))
-          .map((item, index) => {
-            const isOngoing = moment(currentTime).isBetween(
-              moment(item.start),
-              moment(item.end)
-            );
-
-            return (
-              <div
-                key={index}
-                className={`flex flex-row justify-between py-4 items-center border-b border-gray-200 last:border-b-0 ${
-                  isOngoing ? "bg-yellow-100" : ""
-                }`}
-              >
-                <div className="flex flex-col w-1/2">
-                  <div className="text-md font-semibold text-gray-900 truncate">
-                    {moment(item.end?.slice(0, -15)).format("dddd")}
-                  </div>
-                  <div className="text-md font-normal text-gray-500 dark:text-gray-400">
-                    {item.start?.slice(11, -9)} - {item.end?.slice(11, -9)}
-                  </div>
+          .filter((item) => moment(item.end).isAfter(moment()))
+          .map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-row justify-between py-4 items-center border-b border-gray-200 last:border-b-0"
+            >
+              <div className="flex flex-col w-1/2">
+                <div className="text-md font-semibold text-gray-900 truncate">
+                  {moment(item.end?.slice(0, -15)).format("dddd")}
                 </div>
-
-                <div className="text-md font-semibold text-right pr-2 text-gray-900 w-36 truncate">
-                  {item.playlist?.title}
+                <div className="text-md font-normal text-gray-500 dark:text-gray-400">
+                  {item.start?.slice(11, -9)} - {item.end?.slice(11, -9)}
                 </div>
               </div>
-            );
-          })}
+
+              <div className="text-md font-semibold text-right pr-2 text-gray-900 w-36 truncate">
+                {item.playlist?.title}
+              </div>
+            </div>
+          ))}
       </div>
     </div>
   );
