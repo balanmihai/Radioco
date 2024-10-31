@@ -9,9 +9,9 @@ export const PRODUCT_CATEGORIES = [
     value: "contact" as const,
     href: "/contact",
   },
-  {
-    label: "Blog",
-    value: "posts" as const,
-    href: "/posts",
-  },
+  // {
+  //   label: "Blog",
+  //   value: "posts" as const,
+  //   href: "/posts",
+  // },
 ];

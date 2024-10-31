@@ -30,16 +30,16 @@ export default function Contact() {
                       <dd>
                         <a
                           className="font-semibold text-red-500"
-                          href="mailto:vladtoma@gmail.com
+                          href="mailto: contact@romaniaonline.net
 "
                         >
-                          vladtoma@gmail.com
+                          contact@romaniaonline.net
                         </a>
                       </dd>
                     </div>
                     <div className="mt-1">
                       <dt className="sr-only">Phone number</dt>
-                      <dd>+1 (555) 905-2345</dd>
+                      <dd>+44 131 618 7000</dd>
                     </div>
                   </dl>
                 </div>
@@ -53,20 +53,20 @@ export default function Contact() {
                       <dd>
                         <a
                           className="font-semibold text-red-500"
-                          href="mailto:tgvt@yahoo.com
+                          href="mailto: contact@romaniaonline.net
 "
                         >
-                          tgvt@yahoo.com
+                          contact@romaniaonline.net
                         </a>
                       </dd>
                     </div>
                     <div className="mt-1">
                       <dt className="sr-only">Phone number</dt>
-                      <dd>+1 (555) 905-3456</dd>
+                      <dd>+44 131 618 7000</dd>
                     </div>
                   </dl>
                 </div>
-                <div className="rounded-2xl shadow-lg bg-white p-10">
+                {/* <div className="rounded-2xl shadow-lg bg-white p-10">
                   <h3 className="text-base font-semibold leading-7 text-gray-900">
                     Join our team
                   </h3>
@@ -109,7 +109,7 @@ export default function Contact() {
                       <dd>+1 (555) 905-5678</dd>
                     </div>
                   </dl>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
