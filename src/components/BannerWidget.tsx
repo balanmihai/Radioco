@@ -21,7 +21,6 @@ export default function BannerWidget() {
       const { data, error } = await supabase
         .from("banners")
         .select("*")
-        .order("id", { ascending: false });
 
       if (error) {
         console.error("Fetch Error:", error.message);
@@ -49,9 +48,9 @@ export default function BannerWidget() {
         <div className="w-full h-full bg-red-600 p-6 h-full rounded-lg flex items-center justify-center text-white">
         </div>
       ) : (
-              <Link href={images[0].imageUrl} target="_blank">
+              <Link href={images[1].imageUrl} target="_blank">
                 <Image
-                  src={images[0].imageSrc}
+                  src={images[1].imageSrc}
                   alt="Banner"
                   priority
                   layout="intrinsic"
