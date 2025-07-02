@@ -27,7 +27,7 @@ export default function About() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl lg:mx-0">
             <h2 className="text-base font-semibold leading-7 text-red-500">
-              Meet
+              Despre Noi
             </h2>
             <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900">
               Suntem postul de radio online dedicat românilor din Marea
